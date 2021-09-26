@@ -16,4 +16,16 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="DefaultText">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="DefaultTextBold" parent="DefaultText">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DefaultButton" parent="DefaultTextBold">
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
 </resources>

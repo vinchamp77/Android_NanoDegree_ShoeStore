@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="email">Email</string>
+    <string name="email_hint">Enter Your Email Here</string>
+    <string name="password">Password</string>
+    <string name="password_hint">Enter Your Password Here</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
 </resources>
