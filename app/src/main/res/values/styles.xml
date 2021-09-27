@@ -28,4 +28,14 @@
     <style name="DefaultButton" parent="DefaultTextBold">
         <item name="backgroundTint">@color/colorPrimary</item>
     </style>
+
+    <style name="DefaultTitle" parent="DefaultTextBold">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">34sp</item>
+    </style>
+
+    <style name="DefaultDescription" parent="DefaultTextBold">
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>

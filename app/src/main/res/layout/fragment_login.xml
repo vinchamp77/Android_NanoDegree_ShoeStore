@@ -5,8 +5,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".LoginFragment">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/email_label"
@@ -90,6 +89,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:text="@string/signup"
+            android:onClick="onLoginButtonClick"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

@@ -6,4 +6,11 @@
     <string name="password_hint">Enter Your Password Here</string>
     <string name="login">Login</string>
     <string name="signup">Sign Up</string>
+
+    <string name="welcome_title">Welcome to YoYo Shoe Store!</string>
+    <string name="welcome_description">You can buy a lot of shoes here up to 75% discount! Hurry up!</string>
+    <string name="next">Next</string>
+
+    <string name="welcome_instructions">Choose a shoe that you like!</string>
+    <string name="letsgo">Let\'s Go!</string>
 </resources>
