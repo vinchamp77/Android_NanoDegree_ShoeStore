@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShoeStore</string>
+    <string name="app_name">YoYo Shoe Store</string>
     <string name="email">Email</string>
     <string name="email_hint">Enter Your Email Here</string>
     <string name="password">Password</string>
@@ -13,4 +13,6 @@
 
     <string name="welcome_instructions">Choose a shoe that you like!</string>
     <string name="letsgo">Let\'s Go!</string>
+
+    <string name="logout">Logout</string>
 </resources>
