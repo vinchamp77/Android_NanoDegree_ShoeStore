@@ -2,15 +2,23 @@ package com.udacity.shoestore
 
 import android.os.Bundle
 import android.view.*
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.udacity.shoestore.databinding.FragmentInstructionsBinding
-import com.udacity.shoestore.databinding.FragmentLoginBinding
-import com.udacity.shoestore.databinding.FragmentShoelistBinding
-import com.udacity.shoestore.databinding.FragmentWelcomeBinding
+import com.udacity.shoestore.databinding.*
+import kotlinx.android.synthetic.main.item_shoe.view.*
+import timber.log.Timber
 
 class ShoeListFragment : Fragment() {
+
+    private val viewModel: ShoeViewModel by viewModels()
+    private val binding by lazy {
+        FragmentShoelistBinding.inflate(layoutInflater)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,11 +26,12 @@ class ShoeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val binding = FragmentShoelistBinding.inflate(inflater)
-
-        //binding.letsgoButton.setOnClickListener {
-        //    it.findNavController().navigate(Infr)
-        //}
+        viewModel.shoeList.observe(viewLifecycleOwner) {
+            Timber.i("observer is called")
+            for (shoe in it) {
+                addShoe(shoe.name)
+            }
+        }
 
         setHasOptionsMenu(true)
 
@@ -41,5 +50,11 @@ class ShoeListFragment : Fragment() {
                 findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun addShoe(shoeName: String) {
+        val view = layoutInflater.inflate(R.layout.item_shoe, null)
+        view.textView.text = shoeName
+        binding.shoeList.addView(view.textView)
     }
 }
