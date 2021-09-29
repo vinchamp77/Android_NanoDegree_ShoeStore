@@ -35,7 +35,9 @@
         tools:layout="@layout/fragment_instructions">
         <action
             android:id="@+id/action_instructionsFragment_to_shoeListFragment"
-            app:destination="@id/shoeListFragment" />
+            app:destination="@id/shoeListFragment"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_instructionsFragment_to_loginFragment"
             app:destination="@id/loginFragment"
