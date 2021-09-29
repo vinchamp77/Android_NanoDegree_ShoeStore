@@ -1,15 +1,12 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ActivityMainBinding
 import timber.log.Timber
 

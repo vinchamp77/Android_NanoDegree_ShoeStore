@@ -1,15 +1,14 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.ui
 
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.*
 import kotlinx.android.synthetic.main.item_shoe.view.*
 import timber.log.Timber
@@ -45,7 +44,8 @@ class ShoeDetailFragment : Fragment() {
         // cancel button
         binding.cancelButton.setOnClickListener {
             it.findNavController().navigate(
-                ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
+                ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
+            )
         }
 
         setHasOptionsMenu(true)
