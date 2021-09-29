@@ -26,6 +26,7 @@
     <string name="company_name">Company</string>
     <string name="shoe_size">Shoe Size</string>
     <string name="description">Description</string>
+    <string name="incomplete_text">Please enter all fields!</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
 

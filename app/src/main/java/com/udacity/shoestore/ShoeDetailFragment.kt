@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.udacity.shoestore.databinding.*
 import kotlinx.android.synthetic.main.item_shoe.view.*
 import timber.log.Timber
@@ -25,11 +26,23 @@ class ShoeDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        // save button
         binding.saveButton.setOnClickListener {
-            it.findNavController().navigate(
-                ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
+
+           if (validateInputs()) {
+               it.findNavController().navigate(
+                   ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
+               )
+           } else {
+               Snackbar.make(
+                   requireView(),
+                   getString(R.string.incomplete_text),
+                   Snackbar.LENGTH_LONG)
+                   .show()
+           }
         }
 
+        // cancel button
         binding.cancelButton.setOnClickListener {
             it.findNavController().navigate(
                 ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
@@ -54,4 +67,14 @@ class ShoeDetailFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun validateInputs(): Boolean {
+
+        if (binding.shoeNameField.text.isNullOrBlank() ||
+            binding.companyNameField.text.isNullOrBlank() ||
+            binding.shoeSizeField.text.isNullOrBlank()  ||
+            binding.shoeDescriptionField.text.isNullOrBlank()) {
+            return false
+        }
+        return true
+    }
 }

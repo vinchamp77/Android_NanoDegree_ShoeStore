@@ -12,9 +12,19 @@ class ShoeViewModel : ViewModel() {
 
     init {
         _shoeList.value = mutableListOf()
+        mockData()
     }
 
     fun addShoe(data: Shoe) {
         _shoeList.value!!.add(data)
+    }
+
+    private fun mockData() {
+        var count = 1
+        while (count <= 3) {
+            val shoe = Shoe("Shoe $count", 7.0, "Company $count", "Shoe Desc $count")
+            addShoe(shoe)
+            ++count
+        }
     }
 }

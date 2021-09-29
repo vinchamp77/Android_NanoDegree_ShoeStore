@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/shoe_size"
-                android:inputType="numberSigned" />
+                android:inputType="numberSigned|numberDecimal" />
 
             <TextView
                 android:id="@+id/shoe_description_label"
