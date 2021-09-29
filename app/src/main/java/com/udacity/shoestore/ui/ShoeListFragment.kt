@@ -3,7 +3,7 @@ package com.udacity.shoestore.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.item_shoe.view.*
 
 class ShoeListFragment : Fragment() {
 
-    private val viewModel: ShoeViewModel by viewModels()
+    private val viewModel: ShoeViewModel by activityViewModels()
     private val binding by lazy {
         FragmentShoeListBinding.inflate(layoutInflater)
     }

@@ -3,6 +3,7 @@ package com.udacity.shoestore.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -10,10 +11,13 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.*
+import com.udacity.shoestore.viewmodel.ShoeViewModel
 import kotlinx.android.synthetic.main.item_shoe.view.*
 import timber.log.Timber
 
 class ShoeDetailFragment : Fragment() {
+
+    private val viewModel: ShoeViewModel by activityViewModels()
 
     private val binding by lazy {
         FragmentShoeDetailBinding.inflate(layoutInflater)
@@ -29,6 +33,14 @@ class ShoeDetailFragment : Fragment() {
         binding.saveButton.setOnClickListener {
 
            if (validateInputs()) {
+
+               viewModel.addShoe(
+                   binding.shoeNameField.text.toString(),
+                   binding.shoeSizeField.text.toString().toDouble(),
+                   binding.companyNameField.text.toString(),
+                   binding.shoeDescriptionField.text.toString()
+               )
+
                it.findNavController().navigate(
                    ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
                )

@@ -15,15 +15,15 @@ class ShoeViewModel : ViewModel() {
         mockData()
     }
 
-    fun addShoe(data: Shoe) {
-        _shoeList.value!!.add(data)
+    fun addShoe(name: String, size: Double, company: String, description: String) {
+        val shoe = Shoe(name, size, company, description)
+        _shoeList.value!!.add(shoe)
     }
 
     private fun mockData() {
         var count = 1
         while (count <= 3) {
-            val shoe = Shoe("Shoe $count", 7.0, "Company $count", "Shoe Desc $count")
-            addShoe(shoe)
+            addShoe("Shoe $count", 7.0, "Company $count", "Shoe Desc $count")
             ++count
         }
     }
