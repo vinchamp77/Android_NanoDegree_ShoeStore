@@ -13,11 +13,10 @@ import com.udacity.shoestore.databinding.*
 import kotlinx.android.synthetic.main.item_shoe.view.*
 import timber.log.Timber
 
-class ShoeListFragment : Fragment() {
+class ShoeDetailFragment : Fragment() {
 
-    private val viewModel: ShoeViewModel by viewModels()
     private val binding by lazy {
-        FragmentShoeListBinding.inflate(layoutInflater)
+        FragmentShoeDetailBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -26,15 +25,14 @@ class ShoeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        viewModel.shoeList.observe(viewLifecycleOwner) {
-            for (shoe in it) {
-                addShoe(shoe.name)
-            }
+        binding.saveButton.setOnClickListener {
+            it.findNavController().navigate(
+                ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
         }
 
-        binding.addShoeButton.setOnClickListener {
+        binding.cancelButton.setOnClickListener {
             it.findNavController().navigate(
-                ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
+                ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
         }
 
         setHasOptionsMenu(true)
@@ -51,14 +49,9 @@ class ShoeListFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.action_logout ->
-                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
+                findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToLoginFragment())
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun addShoe(shoeName: String) {
-        val view = layoutInflater.inflate(R.layout.item_shoe, null)
-        view.textView.text = shoeName
-        binding.shoeList.addView(view.textView)
-    }
 }

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">YoYo Shoe Store Inventory</string>
+    <!-- login screen -->
     <string name="email">Email</string>
     <string name="email_hint">Enter Your Email Here</string>
     <string name="password">Password</string>
@@ -7,12 +8,27 @@
     <string name="login">Login</string>
     <string name="signup">Sign Up</string>
 
+    <!-- welcome screen -->
     <string name="welcome_title">Welcome to YoYo Shoe Store Inventory!</string>
     <string name="welcome_description">Your one-stop shoe store inventory app</string>
     <string name="next">Next</string>
 
-    <string name="welcome_instructions">View or add shoe into the inventory!</string>
+    <!-- welcome instructions screen -->
+    <string name="welcome_instructions">In next screen, it shows a list of shoes in the inventory. To add shoe in the inventory, press the \'+\' button. </string>
     <string name="letsgo">Let\'s Go!</string>
 
+    <!-- shoe list screen -->
+    <string name="add_shoe">Add Shoe</string>
+
+    <!-- shoe detail screen -->
+    <string name="shoe_detail_title">Enter Your Shoe Detail Here</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="company_name">Company</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- menu -->
     <string name="logout">Logout</string>
 </resources>
