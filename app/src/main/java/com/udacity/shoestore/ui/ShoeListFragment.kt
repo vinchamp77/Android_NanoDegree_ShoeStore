@@ -25,6 +25,7 @@ class ShoeListFragment : Fragment() {
     ): View {
 
         viewModel.shoeList.observe(viewLifecycleOwner) {
+            binding.shoeList.removeAllViews()
             for (shoe in it) {
                 addShoe(shoe.name)
             }
@@ -44,7 +45,7 @@ class ShoeListFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
 
-        inflater.inflate(R.menu.menu_main, menu)
+        inflater.inflate(R.menu.menu_shoe_list, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

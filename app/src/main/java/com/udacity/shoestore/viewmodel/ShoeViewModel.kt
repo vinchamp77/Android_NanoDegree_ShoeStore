@@ -10,14 +10,35 @@ class ShoeViewModel : ViewModel() {
     val shoeList: LiveData<MutableList<Shoe>>
         get() = _shoeList
 
+    var newShoeName = ""
+    var newShoeSize = ""
+    var newCompanyName = ""
+    var newShoeDescription = ""
+
     init {
         _shoeList.value = mutableListOf()
         mockData()
     }
 
-    fun addShoe(name: String, size: Double, company: String, description: String) {
-        val shoe = Shoe(name, size, company, description)
-        _shoeList.value!!.add(shoe)
+    fun resetNewShoe() {
+        newShoeName = ""
+        newShoeSize = ""
+        newCompanyName = ""
+        newShoeDescription = ""
+    }
+
+    fun addNewShoe(): Boolean {
+
+        if (!validateNewShoeInputs()) return false
+
+        addShoe(
+            newShoeName,
+            newShoeSize.toDouble(),
+            newCompanyName,
+            newShoeDescription
+        )
+
+        return true
     }
 
     private fun mockData() {
@@ -26,5 +47,22 @@ class ShoeViewModel : ViewModel() {
             addShoe("Shoe $count", 7.0, "Company $count", "Shoe Desc $count")
             ++count
         }
+    }
+
+    private fun addShoe(name: String, size: Double, company: String, description: String) {
+        val shoe = Shoe(name, size, company, description)
+        _shoeList.value!!.add(shoe)
+    }
+
+    private fun validateNewShoeInputs(): Boolean {
+
+        if (newShoeName.isBlank() ||
+            newCompanyName.isBlank() ||
+            newShoeSize.isBlank()  ||
+            newShoeDescription.isBlank()) {
+            return false
+        }
+
+        return true
     }
 }

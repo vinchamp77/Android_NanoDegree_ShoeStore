@@ -29,21 +29,19 @@ class ShoeDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        viewModel.resetNewShoe()
+
+        binding.viewModel = viewModel
+
         // save button
         binding.saveButton.setOnClickListener {
 
-           if (validateInputs()) {
-
-               viewModel.addShoe(
-                   binding.shoeNameField.text.toString(),
-                   binding.shoeSizeField.text.toString().toDouble(),
-                   binding.companyNameField.text.toString(),
-                   binding.shoeDescriptionField.text.toString()
-               )
+            if (viewModel.addNewShoe()) {
 
                it.findNavController().navigate(
                    ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
                )
+
            } else {
                Snackbar.make(
                    requireView(),
@@ -60,33 +58,7 @@ class ShoeDetailFragment : Fragment() {
             )
         }
 
-        setHasOptionsMenu(true)
 
         return binding.root
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-
-        inflater.inflate(R.menu.menu_main, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.action_logout ->
-                findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToLoginFragment())
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun validateInputs(): Boolean {
-
-        if (binding.shoeNameField.text.isNullOrBlank() ||
-            binding.companyNameField.text.isNullOrBlank() ||
-            binding.shoeSizeField.text.isNullOrBlank()  ||
-            binding.shoeDescriptionField.text.isNullOrBlank()) {
-            return false
-        }
-        return true
     }
 }

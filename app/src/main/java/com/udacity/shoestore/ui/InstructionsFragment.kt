@@ -24,22 +24,7 @@ class InstructionsFragment : Fragment() {
             )
         }
 
-        setHasOptionsMenu(true)
-
         return binding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-
-        inflater.inflate(R.menu.menu_main, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.action_logout ->
-                findNavController().navigate(InstructionsFragmentDirections.actionInstructionsFragmentToLoginFragment())
-        }
-        return super.onOptionsItemSelected(item)
-    }
 }
